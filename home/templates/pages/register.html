@@ -1,0 +1,30 @@
+{% extends 'pages/base.html'%}
+{% load static %}
+
+{% block title %} User Register {% endblock %}
+
+{%block content%}
+<div class="login-container">
+    <div class="container"> 
+        <h1>Register</h1>
+       <form id="admin-form" action="." method="POST">
+            {% csrf_token %}
+      <!--       <div class="input-container">
+                <input type="text" placeholder="Username" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="input-container">
+                <input type="password" placeholder="Password" name="password1" autocomplete="new-password" required="" id="id_password1">
+                <i class="fas fa-lock"></i>
+            </div>
+            <div class="input-container">
+                <input type="password" placeholder="Confirm password" name="password2" autocomplete="new-password" required="" id="id_password2">
+                <i class="fas fa-lock"></i>
+            </div>
+            <button type="submit">Register</button>-->
+            {{form.as_p}}
+            <button type="submit">Register</button>
+        </form>
+    </div>    
+</div>
+{%endblock%}

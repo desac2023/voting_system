@@ -1,0 +1,28 @@
+{% extends 'pages/base.html'%}
+{% load static %}
+
+{% block title %} User Login {% endblock %}
+
+{%block content%}
+<div class="login-container">
+    <div class="container"> 
+        <h1>Login</h1>
+        <form id="admin-form" action="." method="POST">
+            {% csrf_token %}
+            <div class="input-container">
+                <input type="text" name="username" value="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="input-container">
+                <input type="password" placeholder="Password" name="password" autocomplete="current-password" required="" id="id_password">
+                <i class="fas fa-lock"></i>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        <a href="">Forgot password</a>
+        <a href="{%url 'register'%}"><button type="submit">Register</button></a>
+    </div>    
+</div>
+{%endblock%}
+
+

@@ -1,0 +1,198 @@
+{% extends 'pages/base.html'%}
+{% load static %}
+
+{% block title %} User Login {% endblock %}
+
+{%block content%}
+    <div class="dashboard-container">
+        <div class="header-banner">
+            <h1>Welcome to Voters Dashboard</h1>
+            <div class="user-details">
+                <h3>{%firstof user.username%}</h3>
+                <a href="{% url 'logout'%}">Logout</a>
+            </div>
+        </div>
+        <div class="subscription">
+            
+            <span class="voters-count">
+                
+                <div class="total-votes">
+                    {% for subscription in subscription%}
+                    <span class="text-total">Plan: </span><span class="count">{{subscription.subscription_type}}</span>
+                    {% endfor %}
+                </div>
+                <div class="total-votes">
+                    {% for subscription in subscription%}
+                    <span class="text-total">Votes-count: </span><span class="count">{{subscription.number_of_votes}}</span>
+                    {% endfor %}
+                </div>
+                <div class="voted">
+                    <span class="text-total">Voted: </span><span class="count">{{vote|length}}</span>
+                </div>
+                <div class="purchase">
+                    <a href="{%url 'renew'%}"><span class="buy">Upgrade</span></a>
+                </div>
+              
+            </span>
+            
+        </div>
+        <div class="modals-stand">
+            <div class="candidates">
+                <div class="voters">
+                    <div class="container">
+                        <div class="content">
+                            <div class="candidate">
+                                {% for candidate in candidate %}
+                                <div class="content">
+
+                                    {%for category in categories%}
+                                    <h2><span>Category</span> <span>:</span> <span>{{category.title}}</span></h2>
+                                    {%endfor%}
+
+                                   {% if candidate.image%}
+
+                                    <img class="candidate-slide"  src="{{candidate.image.url}}" alt="{{candidate.modal_name}}" style="width: 100%;">
+                                    
+                                    {%else%}
+                                    <p>No image available</p>
+                                    {%endif%}
+
+                                   <span>{{candidate.modal_name}}</span>
+
+                                    <div class="vote-btn">
+                                    <h4 class="button">
+                                    
+                                    <a href="{% url 'createvote' voters.vote.id%}?action=vote">Vote</a>
+                                    
+                                    </h4>
+                                </div>
+                                {%endfor%}
+
+                            </div>
+                            </div>
+                            <div class="candidate">
+                                <div class="content">
+                                   <h2><span>Category</span> <span>:</span> <span>Male</span></h2>
+                                   {% for candidate in candidate %}
+                                   {% if candidate.image%}
+                                   <img class="candidate-slide"  src="{{candidate.image.url}}" alt="{{candidate.modal_name}}" style="width: 100%;">
+                                    {%else%}
+                                    <p>No image available</p>
+                                    {%endif%}
+                                   <span>{{candidate.modal_name}}</span>
+                                  {%endfor%}
+                                    <div class="vote-btn">
+                                    <h4 class="button">Vote</h4>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="candidate">
+                                <div class="content">
+                                    <h2><span>Category</span> <span>:</span> <span>Male</span></h2>
+                                   <img class="candidate-slide" src="/static/img/ImageForArticle_714_16449362895935733.webp" alt="Placeholder_image" style="width: 100%;">
+                                    <span>John Doe 3</span>
+                                    <div class="vote-btn">
+                                    <h4 class="button">Vote</h4>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="candidate">
+                                <div class="content">
+                                    <h2><span>Category</span> <span>:</span> <span>Male</span></h2>
+                                   <img class="candidate-slide" src="/static/img/ImageForArticle_714_16449362895935733.webp" alt="Placeholder_image" style="width: 100%;">
+                                    <span>John Doe 4</span>
+                                    <div class="vote-btn">
+                                    <h4 class="button">Vote</h4>
+                                </div>
+                            </div>
+                            </div>
+                            <button class="next candidate-btn" onclick="prevDivs(-1)">Previous</button>
+                            <button class="next candidate-btn" onclick="nextDivs(1)">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="female-candidates">
+                <div class="female-voters">
+                    <div class="females-container">
+                        <div class="females-content">
+                            <div class="female-candidate">
+                                <div class="females-content">
+                                    <h2><span>Category</span> <span>:</span> <span>Female</span></h2>
+                                   <img class="females-candidate-slide" src="/static/img/ImageForArticle_714_16449362895935733.webp" alt="Placeholder_image" style="width: 100%;">
+                                    <span>Susan Doe 1</span>
+                                    <div class="vote-btn">
+                                    <h4 class="button">Vote</h4>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="female-candidate">
+                                <div class="females-content">
+                                   <h2><span>Category</span> <span>:</span> <span>Female</span></h2>
+                                   <img class="females-candidate-slide" src="/static/img/ImageForArticle_714_16449362895935733.webp" alt="Placeholder_image" style="width: 100%;">
+                                    <span>Susan Doe 1</span>
+                                    <div class="vote-btn">
+                                    <h4 class="button">Vote</h4>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="female-candidate">
+                                <div class="females-content">
+                                    <h2><span>Category</span> <span>:</span> <span>Female</span></h2>
+                                   <img class="females-candidate-slide" src="/static/img/ImageForArticle_714_16449362895935733.webp" alt="Placeholder_image" style="width: 100%;">
+                                    <span>Susan Doe 1</span>
+                                    <div class="vote-btn">
+                                    <h4 class="button">Vote</h4>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="female-candidate">
+                                <div class="females-content">
+                                    <h2><span>Category</span> <span>:</span> <span>Female</span></h2>
+                                   <img class="females-candidate-slide" src="/static/img/ImageForArticle_714_16449362895935733.webp" alt="Placeholder_image" style="width: 100%;">
+                                    <span>Susan Doe 1</span>
+                                    <div class="vote-btn">
+                                    <h4 class="button">Vote</h4>
+                                </div>
+                            </div>
+                            </div>
+                            <button class="female-prev female-candidate-btn" onclick="femalePrevDivs(-1)">Previous</button>
+                            <button class="female-next female-candidate-btn" onclick="femaleNextDivs(1)">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modals">
+            <h2>Recent Updates</h2>
+            <div class="content-manager">
+                <div class="container">
+                    <form id="admin-form" action="" method="POST">
+                        <div class="input-container">
+                        <h2><span>TONNY PHIRI</span> <span>:</span> <span>MALE</span></h2>
+                        <img class="candidate-slide" src="/static/img/ImageForArticle_714_16449362895935733.webp" alt="Placeholder_image" style="width: 100%;">
+                        </div>
+                        <button type="submit">Watch</button>
+                    </form>
+                </div> 
+                <div class="container">
+                    <form id="admin-form" action="" method="POST">
+                        <div class="input-container">
+                            <h2><span>TONNY PHIRI</span> <span>:</span> <span>MALE</span></h2>
+                        <img class="candidate-slide" src="/static/img/ImageForArticle_714_16449362895935733.webp" alt="Placeholder_image" style="width: 100%;">
+                        </div>
+                        <button type="submit">Watch</button>
+                    </form>
+                </div> 
+                <div class="container">
+                    <form id="admin-form" action="" method="POST">
+                        <div class="input-container">
+                        <h2><span>TONNY PHIRI</span> <span>:</span> <span>MALE</span></h2>
+                        <img class="candidate-slide" src="/static/img/ImageForArticle_714_16449362895935733.webp" alt="Placeholder_image" style="width: 100%;">
+                        </div>
+                        <button type="submit">Watch</button>
+                    </form>
+                </div>  
+            </div>
+        </div>
+{%endblock%}

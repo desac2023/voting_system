@@ -1,1 +1,1 @@
-web: gunicorn voters.wsgi.application
+web: pyhton manage.py 

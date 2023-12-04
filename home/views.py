@@ -14,7 +14,7 @@ from .vote import Vote
 
 #Show homepage
 def homepage(request):
-    return render (request, 'pages/homepage.html')
+    return render (request, 'pages/index.html')
 
 def category_details(request, slug):
     categories = get_object_or_404(Categories, slug=slug)

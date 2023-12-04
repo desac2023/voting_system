@@ -1,7 +1,7 @@
 from pathlib import Path
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -13,7 +13,7 @@ SECRET_KEY = 'django-insecure-e7z0ddc7o=-4%4ypys=30z6=l08gfqt)@oz=7o^&0%umx)k4t6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 VOTE_SESSION_ID = 'vote'
 SESSION_COOKIE_AGE = 86400
@@ -71,6 +71,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'voters.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -120,7 +121,7 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
-#STARIC_ROOT = "home/static/"
+STARIC_ROOT = 'home/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

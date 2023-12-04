@@ -1,1 +1,1 @@
-web: pyhton manage.py 
+web:: pythton manage.py 

@@ -1,1 +1,1 @@
-gunicorn voters.wsgi.application
+gunicorn voters.wsgi

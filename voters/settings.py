@@ -71,7 +71,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'voters.wsgi.application'
+WSGI_APPLICATION = 'voters.wsgi'
 
 
 

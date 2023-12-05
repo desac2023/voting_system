@@ -18,7 +18,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 VOTE_SESSION_ID = 'vote'
-#SESSION_COOKIE_AGE = 86400
+SESSION_COOKIE_AGE = 86400
 
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'login'
@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #'django.contrib.staticfiles.middleware.StaticFilesMiddleware',
 ]
 
 ROOT_URLCONF = 'voters.urls'
@@ -119,7 +120,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(ALT_BASE_DIR, 'staticfiles')
+STATIC_ROOT = BASE_DIR / 'static'
 
 
 MEDIA_URL = 'media/'
@@ -133,5 +134,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 STATICFILES_DIRS = [
-    BASE_DIR / "home/static/"
+    BASE_DIR / "home/static"
 ]
